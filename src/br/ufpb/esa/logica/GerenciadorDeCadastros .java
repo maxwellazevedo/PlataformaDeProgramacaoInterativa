@@ -14,13 +14,12 @@ public class GerenciadorDeCadastros {
 		
 	}
 	
-<<<<<<< HEAD
+
 	public Professor pesquisarProfessor (String matricula){
 		for(Professor p: professores){
 			if(p.getMatricula().equals(matricula)){
 				return p;
-=======
-	
+
 	/**
 	 * cadastra o Professor, caso este ja esteja cadastrado, lança uma exceção 
 	 */
@@ -54,7 +53,7 @@ public class GerenciadorDeCadastros {
 		for(Professor p: professores){
 			if(p.getNome().indexOf(nome) != -1){
 				professoresEncontrados.add(p);
->>>>>>> origin/master
+
 			}
 		}
 	}
