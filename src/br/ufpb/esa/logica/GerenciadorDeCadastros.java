@@ -17,21 +17,23 @@ public class GerenciadorDeCadastros {
 	
 	
 	/**
-	 * cadastra o Professor, caso este ja esteja cadastrado, lanÁa o Exception
+	 * cadastra o Professor, caso este ja esteja cadastrado, lan√ßa uma exce√ß√£o 
 	 */
 	public void cadastraProfessor(String nome, String matricula, Login login) throws ProfessorJaExisteException{ // inicializa um professor, adicionando-o no List
 		boolean existe = false; // variavel booleana que muda caso o professor exista
 		for(Professor p: professores){
 			if(p.getNome().equals(nome) && p.getMatricula().equals(matricula)){
 				existe = true;
-				throw new ProfessorJaExisteException("Professor j· existe!");
+				throw new ProfessorJaExisteException("Professor j√° existe!");
 			}
 		}if(!existe){
 			Professor prof = new Professor(nome, matricula, login);
 			this.professores.add(prof);
 		}
 	}
-	
+	/**
+	 * Pesquisar Professor passando o nome
+	 */
 	public List<Professor> pesquisaProfessorPeloNome(String nome){ 
 		List <Professor> professoresEncontrados = new LinkedList<Professor>();
 		for(Professor p: professores){
@@ -42,6 +44,10 @@ public class GerenciadorDeCadastros {
 		return professoresEncontrados;
 	}
 	
+	
+	/**
+	 * Pesquisar professor passando a matricula 
+	 */
 	public Professor pesquisaProfessorPelaMatricula(String matricula) throws ProfessorInexistenteException{
 		boolean encontrouP = false;
 		for(Professor p: professores){
@@ -50,12 +56,14 @@ public class GerenciadorDeCadastros {
 				return p;
 			}
 		}if(!encontrouP){
-			throw new ProfessorInexistenteException("Professor: MatrÌcula inv·lida ou inexistente!");
+			throw new ProfessorInexistenteException("Professor: Matr√≠cula inv√°lida ou inexistente!");
 		}else{
 			return null;
 		}
 	}
-	
+	 /**
+	 * remover Professor
+	 */
 	public void removeProfessor(String matricula)throws ProfessorInexistenteException {
 		boolean removidoProf = false;
 		for(Professor p: professores){
