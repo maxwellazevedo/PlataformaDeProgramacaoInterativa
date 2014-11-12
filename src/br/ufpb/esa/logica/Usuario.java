@@ -1,45 +1,34 @@
+
 package br.ufpb.esa.logica;
 
-abstract class Usuario {
-	private String nome;
-	private Login login;
-	private String matricula;
+public class Usuario {
 	
+	protected String nome;
+	protected String matricula;
+	protected String login;
+	protected String senha;
 	
-	public Usuario (String nome, String matricula, Login login){
-		this.nome = nome;
-		this.matricula = matricula;
-		this.login = login;
+	public String getMatricula() {
+		return matricula;
 	}
-
 
 	public String getNome() {
 		return nome;
 	}
 
+	public String getLogin() {
+		return login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
-	public Login getLogin() {
-		return login;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
-
-
-	public void setLogin(Login login) {
-		this.login = login;
-	}
-
-
-	public String getMatricula() {
-		return matricula;
-	}
-
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
-
 }
